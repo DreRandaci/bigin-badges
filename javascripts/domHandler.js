@@ -1,5 +1,16 @@
 'use strict';
 
+const printButtons = () => {
+    $('#btnsContainer').html(
+        `<button id='bounce' class='btnSize animated fadeIn btn btn-info'>Bouncy</button>
+        <button id='tada' class='btnSize animated fadeIn btn btn-info'>TADA!</button>
+        <button id='hinge' class='btnSize animated fadeIn btn btn-info'>Off the hinges</button>        
+        <button id='rollOut' class='btnSize animated fadeIn btn btn-info'>Lets Roll Out</button>
+        <button id='flash' class='btnSize animated fadeIn btn btn-info'>Flash em broh</button>
+        <button id='rotate' class='btnSize animated fadeIn btn btn-info'>Rotate em broh</button>
+        <button id='shake' class='btnSize animated fadeIn btn btn-info'>Shake em broh</button>`);
+};
+
 const buildDomString = (badgeData) => {
     let domString = '';
     badgeData.forEach((badge) => {
@@ -15,15 +26,18 @@ const writeToDom = (domString) => {
     printButtons();
 };
 
-const printButtons = () => {
-    $('#btnsContainer').html(
-        `<button id='bounce' class='animated fadeIn btn btn-info'>Bouncy</button>
-        <button id='tada' class='animated fadeIn btn btn-info'>TADA!</button>
-        <button id='hinge' class='animated fadeIn btn btn-info'>Off the hinges</button>
-        <button id='rotate' class='animated fadeIn btn btn-info'>Twist, bop it, rotate it</button>
-        <button id='rollOut' class='animated fadeIn btn btn-info'>Lets Roll Out</button>
-        <button id='flash' class='animated fadeIn btn btn-info'>Flash em broh</button>
-        <button id='shake' class='animated fadeIn btn btn-info'>Shake em broh</button>`);
+const refreshDom = (badgeData) => {
+    let domString = '';
+    badgeData.forEach((badge) => {
+        domString += `<div class='col-md-3 animated infinite'>`;
+        domString +=    `<img class='animated bounceInUp' src=${badge.icon_url}>`;
+        domString += `</div>`;
+    });
+    writeRefreshToDom(domString);
 };
 
-module.exports = {buildDomString};
+const writeRefreshToDom = (domString) => {
+    $('#badgeOutput').html(domString);
+};
+
+module.exports = {buildDomString, refreshDom};
