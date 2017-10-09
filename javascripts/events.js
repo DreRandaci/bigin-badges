@@ -31,7 +31,7 @@ $('#btnsContainer').click((e) => {
         default:
             window.alert('THAT BUTTON DOESNT F*KIN WORK BROH');
     }
-    $('#resetBtnContainer').html('<div class="panel panel-warning"><div class="panel-body"><button>Stop Animations</button></div></div>');
+    // $('#resetBtnContainer').html('<div class="panel panel-warning">Panel Heading<div class="panel-body"><button class="btn btn-warning">Stop Animations</button></div></div>');
 });
 
 $('#badgeOutput').hover(() => {
